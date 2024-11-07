@@ -1,7 +1,7 @@
 package com.abc;
 
 import org.junit.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
 public class TransactionTest {
     @Test
