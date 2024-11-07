@@ -3,6 +3,7 @@ package com.abc;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class BankTest {
     private static final double DOUBLE_DELTA = 1e-15;
@@ -50,5 +51,22 @@ public class BankTest {
 
         assertEquals(170.0, bank.totalInterestPaid(), DOUBLE_DELTA);
     }
+
+    @Test
+    public void testGetFirstCustomerWhenNoCustomers() {
+        Bank bank = new Bank();
+        String result = bank.getFirstCustomer();
+        assertEquals("No customers available", result, "The message should indicate no customers are available.");
+    }
+
+    @Test
+    public void testGetFirstCustomerWhenCustomersExist() {
+        Bank bank = new Bank();
+        Customer customer1 = new Customer("Alice");
+        bank.addCustomer(customer1);
+        String result = bank.getFirstCustomer();
+        assertEquals("Alice", result, "The first customer's name should be returned.");
+    }
+
 
 }
